@@ -1,6 +1,6 @@
 package com.example.demo.services;
 
-public class HelloWorldServiceFrench implements HelloWorldService {
+public class HelloWorldServiceFrenchImpl implements HelloWorldService {
     @Override
     public String getGreeting() {
         return "Hola nundo !!!";
