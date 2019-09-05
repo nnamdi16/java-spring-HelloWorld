@@ -6,4 +6,7 @@
     <context:component-scan base-package="com.example.demo"/>
     <bean id="greetingController" class="com.example.demo.controllers.GreetingController"/>
     <bean id="helloWorldFactory" class="com.example.demo.services.HelloWorldFactory"/>
+    <bean id="french" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="fr"/>
+    </bean>
 </beans>
