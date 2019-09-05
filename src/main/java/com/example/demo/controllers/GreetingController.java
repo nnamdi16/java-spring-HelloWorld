@@ -12,19 +12,19 @@ public class GreetingController {
     private HelloWorldService helloWorldServiceGerman;
     private HelloWorldService helloWorldServiceFrench;
 
-    @Autowired
+//    @Autowired
     public void setHelloWorldService(HelloWorldService helloWorldService) {
         this.helloWorldService = helloWorldService;
     }
 
-    @Autowired
-    @Qualifier("helloWorldServiceGerman")
+//    @Autowired
+//    @Qualifier("helloWorldServiceGerman")
     public void setHelloWorldServiceGerman(HelloWorldService helloWorldServiceGerman) {
         this.helloWorldServiceGerman = helloWorldServiceGerman;
     }
 
-    @Autowired
-    @Qualifier("french")
+//    @Autowired
+//    @Qualifier("french")
     public void setHelloWorldServiceFrench(HelloWorldService helloWorldServiceFrench) {
         this.helloWorldServiceFrench = helloWorldServiceFrench;
     }

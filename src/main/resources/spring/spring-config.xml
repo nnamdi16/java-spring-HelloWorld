@@ -4,7 +4,11 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
     <context:component-scan base-package="com.example.demo"/>
-    <bean id="greetingController" class="com.example.demo.controllers.GreetingController"/>
+    <bean id="greetingController" class="com.example.demo.controllers.GreetingController">
+        <property name="helloWorldService" ref="helloWorldServiceEnglishDefault"/>
+        <property name="helloWorldServiceFrench" ref="french"/>
+        <property name="helloWorldServiceGerman" ref="helloWorldServiceGerman"/>
+    </bean>
     <bean id="helloWorldFactory" class="com.example.demo.services.HelloWorldFactory"/>
     <bean id="french" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
         <constructor-arg value="fr"/>
@@ -16,8 +20,14 @@
         <constructor-arg value="es"/>
     </bean>
     <beans profile="english">
-        <bean id="helloWorldServiceEnglishImpl" factory-bean="helloWorldFactory" factory-method="createHelloWorldService" primary="true">
+        <bean id="helloWorldServiceEnglishDefault" factory-bean="helloWorldFactory" factory-method="createHelloWorldService" primary="true">
             <constructor-arg value="en"/>
         </bean>
+
+<!--        <bean id="greetingController" class="com.example.demo.controllers.GreetingController">-->
+<!--            <property name="helloWorldService" ref="helloWorldServiceEnglishImpl"/>-->
+<!--            <property name="helloWorldServiceFrench" ref="french"/>-->
+<!--            <property name="helloWorldServiceGerman" ref="helloWorldServiceGerman"/>-->
+<!--        </bean>-->
     </beans>
 </beans>
