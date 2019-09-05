@@ -9,4 +9,15 @@
     <bean id="french" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
         <constructor-arg value="fr"/>
     </bean>
+    <bean id="helloWorldServiceGerman" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="ge"/>
+    </bean>
+    <bean id="spanish" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="es"/>
+    </bean>
+    <beans profile="english">
+        <bean id="helloWorldServiceEnglishImpl" factory-bean="helloWorldFactory" factory-method="createHelloWorldService" primary="true">
+            <constructor-arg value="en"/>
+        </bean>
+    </beans>
 </beans>
