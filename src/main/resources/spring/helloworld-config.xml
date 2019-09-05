@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
+    <bean id="helloWorldFactory" class="com.example.demo.services.HelloWorldFactory"/>
+    <bean id="french" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="fr"/>
+    </bean>
+    <bean id="helloWorldServiceGerman" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="ge"/>
+    </bean>
+    <bean id="spanish" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="es"/>
+    </bean>
+    <beans profile="english">
+        <import resource="classpath*:spring/english-hello-world.xml"/>
+        <!--        <bean id="greetingController" class="com.example.demo.controllers.GreetingController">-->
+        <!--            <property name="helloWorldService" ref="helloWorldServiceEnglishImpl"/>-->
+        <!--            <property name="helloWorldServiceFrench" ref="french"/>-->
+        <!--            <property name="helloWorldServiceGerman" ref="helloWorldServiceGerman"/>-->
+        <!--        </bean>-->
+    </beans>
 </beans>
