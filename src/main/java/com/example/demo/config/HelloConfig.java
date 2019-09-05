@@ -10,11 +10,11 @@ import org.springframework.context.annotation.Profile;
 @Configuration
 public class HelloConfig {
 
-    @Bean
-
-    public HelloWorldFactory helloWorldFactory() {
-        return new HelloWorldFactory();
-    }
+//    @Bean
+//
+//    public HelloWorldFactory helloWorldFactory() {
+//        return new HelloWorldFactory();
+//    }
 
     @Bean
     @Profile("default | english")
